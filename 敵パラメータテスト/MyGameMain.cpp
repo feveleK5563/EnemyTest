@@ -1,21 +1,6 @@
 #include "MyGameMain.h"
-#include "Position.h"
 
 //ゲーム情報
-
-struct EnemyData
-{
-	int			hp;				//HP
-	int			attack;			//攻撃力
-	Position	pos;			//座標
-	int			movePattern;	//動作パターン
-	int			time;			//時間
-	ML::Box2D	hitbase;		//当たり判定
-	int			imageNum;		//画像番号
-	int			animSpd;		//アニメーション速度
-	int			animSheetNum;	//アニメーション画像番号
-};
-EnemyData ed;
 
 //-----------------------------------------------------------------------------
 //初期化処理
@@ -24,7 +9,6 @@ EnemyData ed;
 void  MyGameMain_Initalize( )
 {
 	DG::Image_Create("Enemy", "./data/image/Slime.png");
-	ed.pos = { 100.f, 100.f };
 }
 //-----------------------------------------------------------------------------
 //解放処理
@@ -40,7 +24,6 @@ void  MyGameMain_Finalize( )
 //-----------------------------------------------------------------------------
 void  MyGameMain_UpDate( )
 {
-
 }
 //-----------------------------------------------------------------------------
 //描画処理
@@ -51,7 +34,8 @@ void  MyGameMain_Render2D( )
 	{
 		ML::Box2D draw(-16, -16, 32, 32);
 		ML::Box2D src(0, 32, 32, 32);
-		draw.Offset(ed.pos.x, ed.pos.y);
+		ML::Vec2 pos(100.f, 100.f);
+		draw.Offset(pos);
 		DG::Image_Draw("Enemy", draw, src);
 	}
 }

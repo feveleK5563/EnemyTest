@@ -119,7 +119,6 @@
     <ClInclude Include="MyGameMain.h" />
     <ClInclude Include="myLib.h" />
     <ClInclude Include="MyPG.h" />
-    <ClInclude Include="Position.h" />
     <ClInclude Include="Task_LC.h" />
     <ClInclude Include="xnacollision.h" />
   </ItemGroup>

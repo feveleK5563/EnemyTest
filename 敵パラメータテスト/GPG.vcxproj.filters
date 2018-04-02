@@ -168,9 +168,6 @@
     <ClInclude Include="DI2014_Ver3_4.h">
       <Filter>LIB\DI2014</Filter>
     </ClInclude>
-    <ClInclude Include="Position.h">
-      <Filter>Game\Main</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="data\Shader\MyStdShader.fx" />
