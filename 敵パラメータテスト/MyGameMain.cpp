@@ -1,4 +1,5 @@
 #include "MyGameMain.h"
+#include "EnemyMoveManager.h"
 
 //ƒQ[ƒ€î•ñ
 
