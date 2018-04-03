@@ -2,6 +2,11 @@
 #include "EnemyMoveManager.h"
 
 //ƒQ[ƒ€î•ñ
+struct EnemyData
+{
+	ML::Vec2 pos;			//À•W
+	EnemyMoveManager emm;	//“®ì‚ÌŠÇ—
+} ed;
 
 //-----------------------------------------------------------------------------
 //‰Šú‰»ˆ—
@@ -10,6 +15,10 @@
 void  MyGameMain_Initalize( )
 {
 	DG::Image_Create("Enemy", "./data/image/Slime.png");
+
+	//“G‚Ìî•ñ‚ğ‚±‚±‚Åİ’è(ÀÛ‚Í‚±‚ñ‚È‚±‚Æ‚µ‚È‚¢)
+	ed.pos = { 0, 200 };
+	ed.emm.SetMovePattern(1, 0, 2, 30, 30, 30);
 }
 //-----------------------------------------------------------------------------
 //‰ğ•úˆ—
@@ -25,6 +34,8 @@ void  MyGameMain_Finalize( )
 //-----------------------------------------------------------------------------
 void  MyGameMain_UpDate( )
 {
+	//“G‚Ì“®ì‚ğXV
+	ed.emm.Move(ed.pos);
 }
 //-----------------------------------------------------------------------------
 //•`‰æˆ—
@@ -32,11 +43,10 @@ void  MyGameMain_UpDate( )
 //-----------------------------------------------------------------------------
 void  MyGameMain_Render2D( )
 {
-	{
+	{	//‰æ‘œ•\¦
 		ML::Box2D draw(-16, -16, 32, 32);
 		ML::Box2D src(0, 32, 32, 32);
-		ML::Vec2 pos(100.f, 100.f);
-		draw.Offset(pos);
+		draw.Offset(ed.pos);
 		DG::Image_Draw("Enemy", draw, src);
 	}
 }

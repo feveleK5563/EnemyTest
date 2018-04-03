@@ -38,9 +38,9 @@ void EnemyMoveManager::SetMovePattern(int moveA, int moveB, int moveC,	//“®ì”Ô
 
 //-----------------------------------------------------------------------------
 //“®ì‚ðs‚¤
-void EnemyMoveManager::Move()
+void EnemyMoveManager::Move(ML::Vec2& pos)
 {
-	em->Move();
+	em->Move(pos);
 
 	//timeCnt‚ªmoveTimeMaxˆÈã‚É‚È‚Á‚½‚çAŽŸ‚Ì“®ì‚ÉˆÚs‚·‚é
 	if (++timeCnt >= moveTimeMax[nowMoveOrder])

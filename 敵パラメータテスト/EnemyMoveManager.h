@@ -24,7 +24,7 @@ public:
 						int timeA, int timeB, int timeC);	//“®ì‚ÌŒp‘±ŠÔ
 
 	//“®ì‚ğs‚¤
-	void Move();
+	void Move(ML::Vec2& pos);
 
 	//Ÿ‚Ì“®ì‚ÉˆÚs‚³‚¹‚é
 	void MoveChange();
