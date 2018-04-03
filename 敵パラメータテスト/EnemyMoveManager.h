@@ -5,6 +5,8 @@
 class EnemyMoveManager
 {
 public:
+	ML::Vec2* pos;		//敵の座標のアドレス値を格納
+
 	int movePatternNum;		//行う動作の数
 	int nowMoveOrder;		//現在の動作順
 	int moveType[3];		//動作の種類(一応決め打ちで3種類まで)
@@ -14,7 +16,7 @@ public:
 	EnemyMove* em;			//動作をこいつで行う
 
 	//コンストラクタ
-	EnemyMoveManager();
+	EnemyMoveManager(ML::Vec2* enemypos);
 
 	//デストラクタ
 	~EnemyMoveManager();
@@ -24,7 +26,7 @@ public:
 						int timeA, int timeB, int timeC);	//動作の継続時間
 
 	//動作を行う
-	void Move(ML::Vec2& pos);
+	void Move();
 
 	//次の動作に移行させる
 	void MoveChange();

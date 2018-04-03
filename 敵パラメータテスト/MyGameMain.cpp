@@ -6,6 +6,10 @@ struct EnemyData
 {
 	ML::Vec2 pos;			//À•W
 	EnemyMoveManager emm;	//“®ì‚ÌŠÇ—
+
+	EnemyData():
+		pos({0, 0}),
+		emm(EnemyMoveManager(&pos)){}
 } ed;
 
 //-----------------------------------------------------------------------------
@@ -35,7 +39,7 @@ void  MyGameMain_Finalize( )
 void  MyGameMain_UpDate( )
 {
 	//“G‚Ì“®ì‚ğXV
-	ed.emm.Move(ed.pos);
+	ed.emm.Move();
 }
 //-----------------------------------------------------------------------------
 //•`‰æˆ—

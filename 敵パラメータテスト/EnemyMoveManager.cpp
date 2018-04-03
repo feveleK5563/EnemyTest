@@ -2,7 +2,8 @@
 
 
 //ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-EnemyMoveManager::EnemyMoveManager() :
+EnemyMoveManager::EnemyMoveManager(ML::Vec2* enemypos) :
+	pos(enemypos),
 	movePatternNum(0),
 	nowMoveOrder(0),
 	timeCnt(0)
@@ -38,9 +39,9 @@ void EnemyMoveManager::SetMovePattern(int moveA, int moveB, int moveC,	//“®ì”Ô
 
 //-----------------------------------------------------------------------------
 //“®ì‚ðs‚¤
-void EnemyMoveManager::Move(ML::Vec2& pos)
+void EnemyMoveManager::Move()
 {
-	em->Move(pos);
+	em->Move(*pos);
 
 	//timeCnt‚ªmoveTimeMaxˆÈã‚É‚È‚Á‚½‚çAŽŸ‚Ì“®ì‚ÉˆÚs‚·‚é
 	if (++timeCnt >= moveTimeMax[nowMoveOrder])
