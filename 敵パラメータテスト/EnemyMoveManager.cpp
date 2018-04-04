@@ -1,6 +1,5 @@
 #include "EnemyMoveManager.h"
 
-
 //ƒRƒ“ƒXƒgƒ‰ƒNƒ^
 EnemyMoveManager::EnemyMoveManager(ML::Vec2* enemypos) :
 	pos(enemypos),
@@ -34,7 +33,7 @@ void EnemyMoveManager::SetMovePattern(int moveA, int moveB, int moveC,	//“®ì”Ô
 
 	movePatternNum = 3;
 
-	MoveChange();
+	MoveChange(moveType[nowMoveOrder]);
 }
 
 //-----------------------------------------------------------------------------
@@ -43,22 +42,29 @@ void EnemyMoveManager::Move()
 {
 	em->Move(*pos);
 
-	//timeCnt‚ªmoveTimeMaxˆÈã‚É‚È‚Á‚½‚çAŸ‚Ì“®ì‚ÉˆÚs‚·‚é
-	if (++timeCnt >= moveTimeMax[nowMoveOrder])
+	++timeCnt;
+
+	if (timeCnt >= moveTimeMax[nowMoveOrder])
 	{
 		timeCnt = 0;
 		delete em;
-		nowMoveOrder = ++nowMoveOrder % movePatternNum;
 
-		MoveChange();
+		++nowMoveOrder;
+		if (nowMoveOrder > movePatternNum)
+		{
+			nowMoveOrder = 0;
+		}
+
+		MoveChange(moveType[nowMoveOrder]);
 	}
 }
 
 //-----------------------------------------------------------------------------
-//Ÿ‚Ì“®ì‚ÉˆÚs‚³‚¹‚é
-void EnemyMoveManager::MoveChange()
+//ˆø”‚Ì“®ì‚ÉˆÚs‚³‚¹‚é
+//ˆø”‚ÍƒeƒXƒg—p‚È‚Ì‚ÅintŒ^
+void EnemyMoveManager::MoveChange(int motionNum)
 {
-	switch (moveType[nowMoveOrder])
+	switch (motionNum)
 	{
 	case 0:		//‰½‚à‚µ‚È‚¢
 		em = new EMove_NoMotion();
@@ -68,8 +74,12 @@ void EnemyMoveManager::MoveChange()
 		em = new EMove_WalkRight();
 		break;
 
-	case 2:		//ƒWƒƒƒ“ƒv‚·‚é
-		em = new EMove_Jump();
+	case 2:		//ã‚ÉˆÚ“®‚·‚é
+		em = new EMove_Up();
+		break;
+
+	case 3:		//‰º‚ÉˆÚ“®‚·‚é
+		em = new EMove_Down();
 		break;
 	}
 }

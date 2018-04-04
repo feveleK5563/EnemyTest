@@ -25,8 +25,16 @@ public:
 };
 
 //-----------------------------------------------
-//ƒWƒƒƒ“ƒv
-class EMove_Jump : public EnemyMove
+//ã‚ÉˆÚ“®‚·‚é
+class EMove_Up : public EnemyMove
+{
+public:
+	void Move(ML::Vec2& pos);
+};
+
+//-----------------------------------------------
+//‰º‚ÉˆÚ“®‚·‚é
+class  EMove_Down : public EnemyMove
 {
 public:
 	void Move(ML::Vec2& pos);

@@ -19,7 +19,7 @@ public:
 	EnemyMoveManager(ML::Vec2* enemypos);
 
 	//デストラクタ
-	~EnemyMoveManager();
+	virtual ~EnemyMoveManager();
 
 	//動作パターンを設定する(今回は面倒なので3種類まで適当に設定できるよ！)
 	void SetMovePattern(int moveA, int moveB, int moveC,	//動作番号
@@ -28,6 +28,7 @@ public:
 	//動作を行う
 	void Move();
 
-	//次の動作に移行させる
-	void MoveChange();
+	//引数の動作に移行させる
+	//引数はテスト用なのでint型
+	void MoveChange(int motionNum);
 };
