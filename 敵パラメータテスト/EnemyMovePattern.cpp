@@ -6,6 +6,7 @@ EnemyMovePattern::EnemyMovePattern() :
 	movePatternNum(0),
 	nowMoveOrder(0)
 {
+	timeCnt = 0;
 	em = new EMove_NoMotion();
 }
 
@@ -17,50 +18,46 @@ EnemyMovePattern::~EnemyMovePattern() { delete em; }
 void EnemyMovePattern::SetMovePattern(int moveA, int moveB, int moveC,	//動作番号
 									  int timeA, int timeB, int timeC)	//動作の継続時間
 {
-	for (int i = 0; i < 3; ++i)
-	{
-		mt.emplace_back();
-		mt.back() = { moveA, timeA };
-	}
-	moveType[0] = moveA;
-	moveType[1] = moveB;
-	moveType[2] = moveC;
+	mt.emplace_back();
+	mt.back() = { moveA, timeA };
 
-	moveTimeMax[0] = timeA;
-	moveTimeMax[1] = timeB;
-	moveTimeMax[2] = timeC;
+	mt.emplace_back();
+	mt.back() = { moveB, timeB };
+
+	mt.emplace_back();
+	mt.back() = { moveC, timeC };
 
 	movePatternNum = (int)mt.size();
 
-	MoveChange();
+	MoveChange(mt[0].moveTypeNum);
 }
 
 //-----------------------------------------------------------------------------
 //動作を行う
-void EnemyMovePattern::Move(int& timeCnt, ML::Vec2& pos)
+void EnemyMovePattern::Move(/*int& timeCnt, */ML::Vec2& pos)
 {
 	em->Move(pos);
 
 	++timeCnt;
 	//timeCntがmoveTimeMax以上になったら、次の動作に移行する
-	if (timeCnt >= moveTimeMax[nowMoveOrder])
+	if (timeCnt >= mt[nowMoveOrder].moveTimeMax)
 	{
 		timeCnt = 0;
 		delete em;
 
 		++nowMoveOrder;
-		if (nowMoveOrder > movePatternNum)
+		if (nowMoveOrder >= movePatternNum)
 			nowMoveOrder = 0;
 
-		MoveChange();
+		MoveChange(mt[nowMoveOrder].moveTypeNum);
 	}
 }
 
 //-----------------------------------------------------------------------------
 //次の動作に移行させる
-void EnemyMovePattern::MoveChange()
+void EnemyMovePattern::MoveChange(int mTypeNum)
 {
-	switch (moveType[nowMoveOrder])
+	switch (mTypeNum)
 	{
 	case 0:		//何もしない
 		em = new EMove_NoMotion();

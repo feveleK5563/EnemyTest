@@ -5,6 +5,7 @@
 class EnemyMovePattern
 {
 public:
+	int timeCnt;
 	int movePatternNum;		//s‚¤“®ì‚Ì”
 	int nowMoveOrder;		//Œ»İ‚Ì“®ì‡
 
@@ -29,8 +30,8 @@ public:
 						int timeA, int timeB, int timeC);	//“®ì‚ÌŒp‘±ŠÔ
 
 	//“®ì‚ğs‚¤
-	void Move(int& timeCnt, ML::Vec2& pos);
+	void Move(/*int& timeCnt,*/ ML::Vec2& pos);
 
 	//Ÿ‚Ì“®ì‚ÉˆÚs‚³‚¹‚é
-	void MoveChange();
+	void MoveChange(int mTypeNum);
 };
