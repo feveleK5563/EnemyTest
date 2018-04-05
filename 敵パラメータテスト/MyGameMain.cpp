@@ -1,15 +1,15 @@
 #include "MyGameMain.h"
-#include "EnemyMoveManager.h"
+#include "EnemyMovePattern.h"
 
 //ƒQ[ƒ€î•ñ
 struct EnemyData
 {
 	ML::Vec2 pos;			//À•W
-	EnemyMoveManager emm;	//“®ì‚ÌŠÇ—
+	EnemyMovePattern emp;	//“®ì‚ÌŠÇ—
 
 	EnemyData():
 		pos({0, 0}),
-		emm(EnemyMoveManager(&pos)){}
+		emp(){}
 } ed;
 
 //-----------------------------------------------------------------------------
@@ -21,8 +21,8 @@ void  MyGameMain_Initalize( )
 	DG::Image_Create("Enemy", "./data/image/Slime.png");
 
 	//“G‚Ìî•ñ‚ğ‚±‚±‚Åİ’è(ÀÛ‚Í‚±‚ñ‚È‚±‚Æ‚µ‚È‚¢)
-	ed.pos = { 0, 200 };
-	ed.emm.SetMovePattern(1, 0, 2, 30, 30, 30);
+	ed.pos = { 0, 50 };
+	ed.emp.SetMovePattern(1, 0, 3, 30, 30, 30);
 }
 //-----------------------------------------------------------------------------
 //‰ğ•úˆ—
@@ -39,7 +39,7 @@ void  MyGameMain_Finalize( )
 void  MyGameMain_UpDate( )
 {
 	//“G‚Ì“®ì‚ğXV
-	ed.emm.Move();
+	ed.emp.Move(ed.pos);
 }
 //-----------------------------------------------------------------------------
 //•`‰æˆ—

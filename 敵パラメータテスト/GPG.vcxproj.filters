@@ -112,6 +112,9 @@
     <ClCompile Include="EnemyMove.cpp">
       <Filter>Game\Main</Filter>
     </ClCompile>
+    <ClCompile Include="EnemyMovePattern.cpp">
+      <Filter>Game\Main</Filter>
+    </ClCompile>
     <ClCompile Include="EnemyMoveManager.cpp">
       <Filter>Game\Main</Filter>
     </ClCompile>
@@ -175,6 +178,9 @@
       <Filter>LIB\DI2014</Filter>
     </ClInclude>
     <ClInclude Include="EnemyMove.h">
+      <Filter>Game\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyMovePattern.h">
       <Filter>Game\Main</Filter>
     </ClInclude>
     <ClInclude Include="EnemyMoveManager.h">

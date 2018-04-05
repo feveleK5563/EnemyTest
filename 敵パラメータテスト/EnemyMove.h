@@ -17,7 +17,7 @@ public:
 };
 
 //-----------------------------------------------
-//右に歩く
+//右に移動する
 class EMove_WalkRight : public EnemyMove
 {
 public:
@@ -25,8 +25,16 @@ public:
 };
 
 //-----------------------------------------------
-//ジャンプ
-class EMove_Jump : public EnemyMove
+//上に移動する
+class EMove_Up : public EnemyMove
+{
+public:
+	void Move(ML::Vec2& pos);
+};
+
+//-----------------------------------------------
+//下に移動する
+class EMove_Down : public EnemyMove
 {
 public:
 	void Move(ML::Vec2& pos);

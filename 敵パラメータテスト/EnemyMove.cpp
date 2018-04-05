@@ -15,8 +15,15 @@ void EMove_WalkRight::Move(ML::Vec2& pos)
 }
 
 //-----------------------------------------------
-//ÉWÉÉÉìÉv
-void EMove_Jump::Move(ML::Vec2& pos)
+//è„Ç…à⁄ìÆÇ∑ÇÈ
+void EMove_Up::Move(ML::Vec2& pos)
 {
 	--pos.y;
+}
+
+//-----------------------------------------------
+//â∫Ç…à⁄ìÆÇ∑ÇÈ
+void EMove_Down::Move(ML::Vec2& pos)
+{
+	++pos.y;
 }
