@@ -47,6 +47,24 @@
     <Filter Include="MyPG\Tasks">
       <UniqueIdentifier>{4721d42f-e82c-4cec-9cb0-53db628948c4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Object">
+      <UniqueIdentifier>{5c909919-b483-40f4-8a9b-03b20c91e517}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Enemy">
+      <UniqueIdentifier>{fdcf04d8-ce95-48b6-821a-1f28fbf9907d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\TimeCnt">
+      <UniqueIdentifier>{2bf7f946-cf28-4659-9c78-a93c259c048b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Move">
+      <UniqueIdentifier>{3f0b73ff-93b8-4442-821c-9138fa5dceab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Move\NewFilter1">
+      <UniqueIdentifier>{93a4f33a-47e8-49f8-b0cc-2323f9f53ede}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\SecondCnt">
+      <UniqueIdentifier>{1db523a9-612f-43c8-8368-c5b52e29bd55}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="myLib.cpp">
@@ -115,6 +133,18 @@
     <ClCompile Include="EnemyMoveManager.cpp">
       <Filter>Game\Main</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Game\Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeCnt.cpp">
+      <Filter>Game\Object\TimeCnt</Filter>
+    </ClCompile>
+    <ClCompile Include="Move.cpp">
+      <Filter>Game\Object\Move</Filter>
+    </ClCompile>
+    <ClCompile Include="SecondCnt.cpp">
+      <Filter>Game\Object\SecondCnt</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="myLib.h">
@@ -179,6 +209,18 @@
     </ClInclude>
     <ClInclude Include="EnemyMoveManager.h">
       <Filter>Game\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Game\Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeCnt.h">
+      <Filter>Game\Object\TimeCnt</Filter>
+    </ClInclude>
+    <ClInclude Include="Move.h">
+      <Filter>Game\Object\Move</Filter>
+    </ClInclude>
+    <ClInclude Include="SecondCnt.h">
+      <Filter>Game\Object\SecondCnt</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

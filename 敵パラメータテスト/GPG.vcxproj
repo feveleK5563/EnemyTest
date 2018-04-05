@@ -93,13 +93,17 @@
     <ClCompile Include="DG2014\DG2014_VertexBuffer.cpp" />
     <ClCompile Include="DG2014\DG2014_VertexContainer.cpp" />
     <ClCompile Include="DI2014_Ver3_4.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyMove.cpp" />
     <ClCompile Include="EnemyMoveManager.cpp" />
     <ClCompile Include="GameEngine_Ver3_6.cpp" />
+    <ClCompile Include="Move.cpp" />
     <ClCompile Include="MyGameMain.cpp" />
     <ClCompile Include="myLib.cpp" />
     <ClCompile Include="MyPG.cpp" />
+    <ClCompile Include="SecondCnt.cpp" />
     <ClCompile Include="Task_LC.cpp" />
+    <ClCompile Include="TimeCnt.cpp" />
     <ClCompile Include="WinMain.cpp" />
     <ClCompile Include="xnacollision.cpp" />
   </ItemGroup>
@@ -117,13 +121,17 @@
     <ClInclude Include="DG2014\DG2014_VertexContainer.h" />
     <ClInclude Include="DI2014_Ver3_4.h" />
     <ClInclude Include="EFile.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyMove.h" />
     <ClInclude Include="EnemyMoveManager.h" />
     <ClInclude Include="GameEngine_Ver3_6.h" />
+    <ClInclude Include="Move.h" />
     <ClInclude Include="MyGameMain.h" />
     <ClInclude Include="myLib.h" />
     <ClInclude Include="MyPG.h" />
+    <ClInclude Include="SecondCnt.h" />
     <ClInclude Include="Task_LC.h" />
+    <ClInclude Include="TimeCnt.h" />
     <ClInclude Include="xnacollision.h" />
   </ItemGroup>
   <ItemGroup>
