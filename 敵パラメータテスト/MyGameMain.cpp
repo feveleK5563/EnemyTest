@@ -1,16 +1,20 @@
 #include "MyGameMain.h"
-#include "EnemyMovePattern.h"
+#include "EnemyMoveManager.h"
+
+#include "conio.h"
 
 //ƒQ[ƒ€î•ñ
 struct EnemyData
 {
 	ML::Vec2 pos;			//À•W
-	EnemyMovePattern emp;	//“®ì‚ÌŠÇ—
+	EnemyMoveManager emm;	//“®ì‚ÌŠÇ—
 
 	EnemyData():
 		pos({0, 0}),
-		emp(){}
+		emm(){}
 } ed;
+
+DI::VGamePad gp;
 
 //-----------------------------------------------------------------------------
 //‰Šú‰»ˆ—
@@ -22,7 +26,8 @@ void  MyGameMain_Initalize( )
 
 	//“G‚Ìî•ñ‚ğ‚±‚±‚Åİ’è(ÀÛ‚Í‚±‚ñ‚È‚±‚Æ‚µ‚È‚¢)
 	ed.pos = { 0, 50 };
-	ed.emp.SetMovePattern(1, 2, 3, 30, 30, 50);
+	ed.emm.CreateMotionPattern(0, 0, 0, 60, 60, 60);
+	ed.emm.CreateMotionPattern(1, 2, 3, 30, 30, 50);
 }
 //-----------------------------------------------------------------------------
 //‰ğ•úˆ—
@@ -38,8 +43,10 @@ void  MyGameMain_Finalize( )
 //-----------------------------------------------------------------------------
 void  MyGameMain_UpDate( )
 {
+	gp = DI::GPad_GetState("P1");
+	
 	//“G‚Ì“®ì‚ğXV
-	ed.emp.Move(ed.pos);
+	ed.emm.Move(ed.pos, gp);
 }
 //-----------------------------------------------------------------------------
 //•`‰æˆ—
