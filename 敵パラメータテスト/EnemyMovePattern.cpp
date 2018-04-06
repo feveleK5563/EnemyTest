@@ -18,15 +18,15 @@ EnemyMovePattern::~EnemyMovePattern()
 }
 
 //-----------------------------------------------------------------------------
-//動作パターンを設定する(今回は面倒なので3種類まで適当に設定できるよ！)
-void EnemyMovePattern::SetMovePattern(int moveA, int moveB, int moveC,	//動作番号
-									  int timeA, int timeB, int timeC)	//動作の継続時間
+//動作パターンを設定する
+void EnemyMovePattern::SetMovePattern(int* moveNum,			//動作番号を入れた配列のアドレス値
+									  int* durationTime,	//動作の継続時間を入れた配列のアドレス値
+									  int  totalMoveNum)	//動作の総数
 {
-	mt.emplace_back(new MoveType(moveA, timeA));
-
-	mt.emplace_back(new MoveType(moveB, timeB));
-
-	mt.emplace_back(new MoveType(moveC, timeC));
+	for (int i = 0; i < totalMoveNum; ++i)
+	{
+		mt.emplace_back(new MoveType(*(moveNum + i), *(durationTime + i)));
+	}
 
 	MoveChange(mt[0]->moveTypeNum);
 }

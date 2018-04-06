@@ -27,9 +27,10 @@ public:
 	//デストラクタ
 	~EnemyMovePattern();
 
-	//動作パターンを設定する(今回は面倒なので3種類まで適当に設定できるよ！)
-	void SetMovePattern(int moveA, int moveB, int moveC,	//動作番号
-						int timeA, int timeB, int timeC);	//動作の継続時間
+	//動作パターンを設定する
+	void SetMovePattern(int* moveNum,		//動作番号を入れた配列のアドレス値
+						int* durationTime,	//動作の継続時間を入れた配列のアドレス値
+						int  totalMoveNum);	//動作の総数
 
 	//動作を行う
 	void Move(int& timeCnt, ML::Vec2& pos);

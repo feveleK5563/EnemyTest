@@ -1,8 +1,6 @@
 #include "MyGameMain.h"
 #include "EnemyMoveManager.h"
 
-#include "conio.h"
-
 //ゲーム情報
 struct EnemyData
 {
@@ -26,8 +24,19 @@ void  MyGameMain_Initalize( )
 
 	//敵の情報をここで設定(実際はこんなことしない)
 	ed.pos = { 0, 50 };
-	ed.emm.CreateMotionPattern(0, 0, 0, 60, 60, 60);
-	ed.emm.CreateMotionPattern(1, 2, 3, 30, 30, 50);
+
+	{//動作パターン1 待機
+		int moveNum[1] = { 0 };
+		int durationTime[1] = { 60 };
+		int totalMoveNum = 1;
+		ed.emm.CreateMotionPattern(moveNum, durationTime, totalMoveNum);
+	}
+	{//動作パターン2 右30フレーム→上30フレーム→下60フレーム
+		int moveNum[3] = { 1, 2, 3 };
+		int durationTime[3] = { 30, 30, 60 };
+		int totalMoveNum = 3;
+		ed.emm.CreateMotionPattern(moveNum, durationTime, totalMoveNum);
+	}
 }
 //-----------------------------------------------------------------------------
 //解放処理

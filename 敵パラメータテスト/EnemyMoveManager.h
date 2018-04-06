@@ -13,10 +13,11 @@ public:
 	~EnemyMoveManager();
 
 	//動作パターン集合の生成
-	void CreateMotionPattern(int moveA, int moveB, int moveC,
-							 int timeA, int timeB, int timeC);
+	void CreateMotionPattern(int* moveNum,			//動作番号を入れた配列のアドレス値
+							 int* durationTime,		//動作の継続時間を入れた配列のアドレス値
+							 int  totalMoveNum);	//動作の総数
 
-	//動作を行う
+	//現在の動作パターンを実行する
 	void Move(ML::Vec2& pos, const DI::VGamePad& gp);
 
 	//動作パターンを指定番号に遷移させる
