@@ -93,10 +93,12 @@
     <ClCompile Include="DG2014\DG2014_VertexBuffer.cpp" />
     <ClCompile Include="DG2014\DG2014_VertexContainer.cpp" />
     <ClCompile Include="DI2014_Ver3_4.cpp" />
+    <ClCompile Include="EnemyData.cpp" />
     <ClCompile Include="EnemyMove.cpp" />
     <ClCompile Include="EnemyMoveManager.cpp" />
     <ClCompile Include="EnemyMovePattern.cpp" />
     <ClCompile Include="GameEngine_Ver3_6.cpp" />
+    <ClCompile Include="EnemyMoveTransition.cpp" />
     <ClCompile Include="MyGameMain.cpp" />
     <ClCompile Include="myLib.cpp" />
     <ClCompile Include="MyPG.cpp" />
@@ -118,10 +120,12 @@
     <ClInclude Include="DG2014\DG2014_VertexContainer.h" />
     <ClInclude Include="DI2014_Ver3_4.h" />
     <ClInclude Include="EFile.h" />
+    <ClInclude Include="EnemyData.h" />
     <ClInclude Include="EnemyMove.h" />
     <ClInclude Include="EnemyMoveManager.h" />
     <ClInclude Include="EnemyMovePattern.h" />
     <ClInclude Include="GameEngine_Ver3_6.h" />
+    <ClInclude Include="EnemyMoveTransition.h" />
     <ClInclude Include="MyGameMain.h" />
     <ClInclude Include="myLib.h" />
     <ClInclude Include="MyPG.h" />

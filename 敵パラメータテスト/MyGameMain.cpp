@@ -1,18 +1,9 @@
 #include "MyGameMain.h"
-#include "EnemyMoveManager.h"
+#include "EnemyData.h"
 
 //ゲーム情報
-struct EnemyData
-{
-	ML::Vec2 pos;			//座標
-	EnemyMoveManager emm;	//動作の管理
-
-	EnemyData():
-		pos({0, 0}),
-		emm(){}
-} ed;
-
-DI::VGamePad gp;
+DI::VGamePad	gp;
+EnemyData		ed;
 
 //-----------------------------------------------------------------------------
 //初期化処理
@@ -21,7 +12,6 @@ DI::VGamePad gp;
 void  MyGameMain_Initalize( )
 {
 	DG::Image_Create("Enemy", "./data/image/Slime.png");
-
 	//敵の情報をここで設定(実際はこんなことしない)
 	ed.pos = { 0, 50 };
 
@@ -29,13 +19,13 @@ void  MyGameMain_Initalize( )
 		int moveNum[1] = { 0 };
 		int durationTime[1] = { 60 };
 		int totalMoveNum = 1;
-		ed.emm.CreateMotionPattern(moveNum, durationTime, totalMoveNum);
+		ed.emm.CreateMotionPattern(moveNum, durationTime, totalMoveNum, 1, 60);
 	}
 	{//動作パターン2 右30フレーム→上30フレーム→下60フレーム
 		int moveNum[3] = { 1, 2, 3 };
 		int durationTime[3] = { 30, 30, 60 };
 		int totalMoveNum = 3;
-		ed.emm.CreateMotionPattern(moveNum, durationTime, totalMoveNum);
+		ed.emm.CreateMotionPattern(moveNum, durationTime, totalMoveNum, 1, 30);
 	}
 }
 //-----------------------------------------------------------------------------
@@ -66,6 +56,8 @@ void  MyGameMain_Render2D( )
 	{	//画像表示
 		ML::Box2D draw(-16, -16, 32, 32);
 		ML::Box2D src(0, 32, 32, 32);
+		if (ed.angle == EnemyData::Angle::Left)
+			src = { 32, 32, -32, 32 };
 		draw.Offset(ed.pos);
 		DG::Image_Draw("Enemy", draw, src);
 	}

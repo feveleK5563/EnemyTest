@@ -47,6 +47,9 @@
     <Filter Include="MyPG\Tasks">
       <UniqueIdentifier>{4721d42f-e82c-4cec-9cb0-53db628948c4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Main\Enemy">
+      <UniqueIdentifier>{fad5b7ff-0fa4-4180-8c85-149eba0c55d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="myLib.cpp">
@@ -110,13 +113,19 @@
       <Filter>LIB\DI2014</Filter>
     </ClCompile>
     <ClCompile Include="EnemyMove.cpp">
-      <Filter>Game\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyMovePattern.cpp">
-      <Filter>Game\Main</Filter>
+      <Filter>Game\Main\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="EnemyMoveManager.cpp">
-      <Filter>Game\Main</Filter>
+      <Filter>Game\Main\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyMovePattern.cpp">
+      <Filter>Game\Main\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyData.cpp">
+      <Filter>Game\Main\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyMoveTransition.cpp">
+      <Filter>Game\Main\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -178,13 +187,19 @@
       <Filter>LIB\DI2014</Filter>
     </ClInclude>
     <ClInclude Include="EnemyMove.h">
-      <Filter>Game\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyMovePattern.h">
-      <Filter>Game\Main</Filter>
+      <Filter>Game\Main\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="EnemyMoveManager.h">
-      <Filter>Game\Main</Filter>
+      <Filter>Game\Main\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyMovePattern.h">
+      <Filter>Game\Main\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyData.h">
+      <Filter>Game\Main\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyMoveTransition.h">
+      <Filter>Game\Main\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

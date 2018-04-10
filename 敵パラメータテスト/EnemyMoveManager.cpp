@@ -10,16 +10,21 @@ EnemyMoveManager::~EnemyMoveManager()
 {
 	for (auto it : empattern)
 		delete it;
+
+	for (auto it : emtransition)
+		delete it;
 }
 
 //-----------------------------------------------------------------------------
 //動作パターン集合の生成
 void EnemyMoveManager::CreateMotionPattern(int* moveNum,		//動作番号を入れた配列のアドレス値
 										   int* durationTime,	//動作の継続時間を入れた配列のアドレス値
-										   int  totalMoveNum)	//動作の総数
+										   int  totalMoveNum,	//動作の総数
+										   int	transitionNum,	//動作パターンの遷移方法の番号
+										   int	transMaxTime)	//時間遷移選択時の遷移時間
 {
-	empattern.emplace_back(new EnemyMovePattern());
-	empattern.back()->SetMovePattern(moveNum, durationTime, totalMoveNum);
+	empattern.emplace_back(new EnemyMovePattern(moveNum, durationTime, totalMoveNum));
+	SetTransition(transitionNum, transMaxTime);
 }
 
 //-----------------------------------------------------------------------------
@@ -28,13 +33,13 @@ void EnemyMoveManager::Move(ML::Vec2& pos, const DI::VGamePad& gp)
 {
 	empattern[nowPatternOrder]->Move(timeCnt, pos);
 
-	if (gp.B1.down)
+	if (emtransition[nowPatternOrder]->Transition())
 	{
-		PatternTransition(1);
-	}
-	else if (gp.B1.up)
-	{
-		PatternTransition(0);
+		++nowPatternOrder;
+		if (nowPatternOrder >= (int)empattern.size())
+			nowPatternOrder = 0;
+
+		PatternTransition(nowPatternOrder);
 	}
 }
 
@@ -48,4 +53,23 @@ void EnemyMoveManager::PatternTransition(int patternNum)
 	empattern[nowPatternOrder]->MoveReset();
 	nowPatternOrder = patternNum;
 	timeCnt = 0;
+}
+
+//-----------------------------------------------------------------------------
+//動作パターンの遷移方法を設定する
+void EnemyMoveManager::SetTransition(int transitionNum, int transMaxTime)
+{
+	switch (transitionNum)
+	{
+	case 0:	//遷移なし
+		emtransition.emplace_back();
+		emtransition.back() = new ETransition_Non();
+		break;
+
+	case 1: //時間経過
+		emtransition.emplace_back();
+		emtransition.back() = new ETransition_Timer();
+		emtransition.back()->SetTime(transMaxTime);
+		break;
+	}
 }

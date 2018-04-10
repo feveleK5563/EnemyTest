@@ -22,15 +22,12 @@ public:
 
 
 	//コンストラクタ
-	EnemyMovePattern();
+	EnemyMovePattern(int* moveNum,			//動作番号を入れた配列のアドレス値
+					 int* durationTime,		//動作の継続時間を入れた配列のアドレス値
+					 int  totalMoveNum);	//動作の総数
 
 	//デストラクタ
 	~EnemyMovePattern();
-
-	//動作パターンを設定する
-	void SetMovePattern(int* moveNum,		//動作番号を入れた配列のアドレス値
-						int* durationTime,	//動作の継続時間を入れた配列のアドレス値
-						int  totalMoveNum);	//動作の総数
 
 	//動作を行う
 	void Move(int& timeCnt, ML::Vec2& pos);

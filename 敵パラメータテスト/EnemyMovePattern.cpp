@@ -2,10 +2,18 @@
 
 
 //コンストラクタ
-EnemyMovePattern::EnemyMovePattern() :
+EnemyMovePattern::EnemyMovePattern(
+	int* moveNum,			//動作番号を入れた配列のアドレス値
+	int* durationTime,		//動作の継続時間を入れた配列のアドレス値
+	int  totalMoveNum) :	//動作の総数
 	nowMoveOrder(0)
 {
-	em = new EMove_NoMotion();
+	for (int i = 0; i < totalMoveNum; ++i)
+	{
+		mt.emplace_back(new MoveType(*(moveNum + i), *(durationTime + i)));
+	}
+
+	MoveChange(mt[0]->moveTypeNum);
 }
 
 //デストラクタ
@@ -15,20 +23,6 @@ EnemyMovePattern::~EnemyMovePattern()
 		delete it;
 
 	delete em;
-}
-
-//-----------------------------------------------------------------------------
-//動作パターンを設定する
-void EnemyMovePattern::SetMovePattern(int* moveNum,			//動作番号を入れた配列のアドレス値
-									  int* durationTime,	//動作の継続時間を入れた配列のアドレス値
-									  int  totalMoveNum)	//動作の総数
-{
-	for (int i = 0; i < totalMoveNum; ++i)
-	{
-		mt.emplace_back(new MoveType(*(moveNum + i), *(durationTime + i)));
-	}
-
-	MoveChange(mt[0]->moveTypeNum);
 }
 
 //-----------------------------------------------------------------------------
