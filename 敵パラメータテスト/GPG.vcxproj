@@ -80,6 +80,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnimationManager.cpp" />
     <ClCompile Include="DG2014\DG2014_DGObject.cpp" />
     <ClCompile Include="DG2014\DG2014_Effect.cpp" />
     <ClCompile Include="DG2014\DG2014_Font.cpp" />
@@ -97,8 +98,9 @@
     <ClCompile Include="EnemyMove.cpp" />
     <ClCompile Include="EnemyMoveManager.cpp" />
     <ClCompile Include="EnemyMovePattern.cpp" />
-    <ClCompile Include="GameEngine_Ver3_6.cpp" />
     <ClCompile Include="EnemyMoveTransition.cpp" />
+    <ClCompile Include="GameEngine_Ver3_6.cpp" />
+    <ClCompile Include="CharaChip.cpp" />
     <ClCompile Include="MyGameMain.cpp" />
     <ClCompile Include="myLib.cpp" />
     <ClCompile Include="MyPG.cpp" />
@@ -107,6 +109,7 @@
     <ClCompile Include="xnacollision.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimationManager.h" />
     <ClInclude Include="DG2014\DG2014_DGObject.h" />
     <ClInclude Include="DG2014\DG2014_Effect.h" />
     <ClInclude Include="DG2014\DG2014_Font.h" />
@@ -124,8 +127,9 @@
     <ClInclude Include="EnemyMove.h" />
     <ClInclude Include="EnemyMoveManager.h" />
     <ClInclude Include="EnemyMovePattern.h" />
-    <ClInclude Include="GameEngine_Ver3_6.h" />
     <ClInclude Include="EnemyMoveTransition.h" />
+    <ClInclude Include="GameEngine_Ver3_6.h" />
+    <ClInclude Include="CharaChip.h" />
     <ClInclude Include="MyGameMain.h" />
     <ClInclude Include="myLib.h" />
     <ClInclude Include="MyPG.h" />

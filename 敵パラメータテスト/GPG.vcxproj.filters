@@ -50,6 +50,9 @@
     <Filter Include="Game\Main\Enemy">
       <UniqueIdentifier>{fad5b7ff-0fa4-4180-8c85-149eba0c55d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Main\ImageManager">
+      <UniqueIdentifier>{44a6e97a-b14a-4d04-83e4-fb32deaf14de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="myLib.cpp">
@@ -112,6 +115,9 @@
     <ClCompile Include="DI2014_Ver3_4.cpp">
       <Filter>LIB\DI2014</Filter>
     </ClCompile>
+    <ClCompile Include="EnemyData.cpp">
+      <Filter>Game\Main\Enemy</Filter>
+    </ClCompile>
     <ClCompile Include="EnemyMove.cpp">
       <Filter>Game\Main\Enemy</Filter>
     </ClCompile>
@@ -121,11 +127,14 @@
     <ClCompile Include="EnemyMovePattern.cpp">
       <Filter>Game\Main\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyData.cpp">
-      <Filter>Game\Main\Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="EnemyMoveTransition.cpp">
       <Filter>Game\Main\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationManager.cpp">
+      <Filter>Game\Main\ImageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CharaChip.cpp">
+      <Filter>Game\Main\ImageManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +195,9 @@
     <ClInclude Include="DI2014_Ver3_4.h">
       <Filter>LIB\DI2014</Filter>
     </ClInclude>
+    <ClInclude Include="EnemyData.h">
+      <Filter>Game\Main\Enemy</Filter>
+    </ClInclude>
     <ClInclude Include="EnemyMove.h">
       <Filter>Game\Main\Enemy</Filter>
     </ClInclude>
@@ -195,11 +207,14 @@
     <ClInclude Include="EnemyMovePattern.h">
       <Filter>Game\Main\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyData.h">
-      <Filter>Game\Main\Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="EnemyMoveTransition.h">
       <Filter>Game\Main\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationManager.h">
+      <Filter>Game\Main\ImageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CharaChip.h">
+      <Filter>Game\Main\ImageManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

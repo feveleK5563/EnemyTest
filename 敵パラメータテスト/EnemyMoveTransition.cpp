@@ -1,29 +1,8 @@
 #include "EnemyMoveTransition.h"
 
 //-----------------------------------------------
-//ŠÔ§ŒÀ‚Ìİ’è
-void EnemyMoveTransition::SetTime(int mt)
+//íg—p
+bool ETransition_Default::Transition()
 {
-	maxTime = mt;
-}
-
-//-----------------------------------------------
-//‘JˆÚ‚È‚µ
-bool ETransition_Non::Transition()
-{
-	return false;
-}
-
-//-----------------------------------------------
-//ŠÔŒo‰ß
-bool ETransition_Timer::Transition()
-{
-	++timeCnt;
-	if (timeCnt >= maxTime)
-	{
-		timeCnt = 0;
-		return true;
-	}
-
-	return false;
+	return true;
 }

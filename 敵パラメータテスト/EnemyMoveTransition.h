@@ -5,25 +5,13 @@
 class EnemyMoveTransition
 {
 public:
-	int	timeCnt;	//時間計測
-	int	maxTime;	//時間制限
-	EnemyMoveTransition() : timeCnt(0), maxTime(0){}
-	
-	void SetTime(int mt);
+	EnemyMoveTransition(){}
 	virtual bool Transition() = 0;
 };
 
 //-----------------------------------------------
-//遷移しない
-class ETransition_Non : public EnemyMoveTransition
-{
-public:
-	bool Transition();
-};
-
-//-----------------------------------------------
-//時間経過
-class ETransition_Timer : public EnemyMoveTransition
+//常時使用 (二つ以上設定した場合動作の保証はできないぜ)
+class ETransition_Default : public EnemyMoveTransition
 {
 public:
 	bool Transition();

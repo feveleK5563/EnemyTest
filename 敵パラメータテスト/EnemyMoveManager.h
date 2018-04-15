@@ -22,7 +22,7 @@ public:
 							 int  transMaxTime = 0);	//時間遷移選択時の遷移時間
 
 	//現在の動作パターンを実行する
-	void Move(ML::Vec2& pos, const DI::VGamePad& gp);
+	void Move(ML::Vec2& pos);
 
 	//動作パターンを指定番号に遷移させる
 	void PatternTransition(int patternNum);

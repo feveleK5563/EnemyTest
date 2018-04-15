@@ -29,17 +29,19 @@ void EnemyMoveManager::CreateMotionPattern(int* moveNum,		//動作番号を入れた配列
 
 //-----------------------------------------------------------------------------
 //現在の動作パターンを実行する
-void EnemyMoveManager::Move(ML::Vec2& pos, const DI::VGamePad& gp)
+void EnemyMoveManager::Move(ML::Vec2& pos)
 {
 	empattern[nowPatternOrder]->Move(timeCnt, pos);
 
-	if (emtransition[nowPatternOrder]->Transition())
+	//パターンの遷移条件を満たしたら即パターン変更
+	for (int i = 0; i < (int)emtransition.size(); ++i)
 	{
-		++nowPatternOrder;
-		if (nowPatternOrder >= (int)empattern.size())
-			nowPatternOrder = 0;
-
-		PatternTransition(nowPatternOrder);
+		if (nowPatternOrder != i && 
+			emtransition[i]->Transition())
+		{
+			PatternTransition(i);
+			return;
+		}
 	}
 }
 
@@ -63,13 +65,7 @@ void EnemyMoveManager::SetTransition(int transitionNum, int transMaxTime)
 	{
 	case 0:	//遷移なし
 		emtransition.emplace_back();
-		emtransition.back() = new ETransition_Non();
-		break;
-
-	case 1: //時間経過
-		emtransition.emplace_back();
-		emtransition.back() = new ETransition_Timer();
-		emtransition.back()->SetTime(transMaxTime);
+		emtransition.back() = new ETransition_Default();
 		break;
 	}
 }
