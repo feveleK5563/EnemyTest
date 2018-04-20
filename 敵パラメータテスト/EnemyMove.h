@@ -5,7 +5,7 @@
 class EnemyMove
 {
 public:
-	virtual void Move(ML::Vec2& pos) = 0;
+	virtual void Move(ML::Vec2& moveVec) = 0;
 };
 
 //-----------------------------------------------
@@ -13,7 +13,7 @@ public:
 class EMove_NoMotion : public EnemyMove
 {
 public:
-	void Move(ML::Vec2& pos);
+	void Move(ML::Vec2& moveVec);
 };
 
 //-----------------------------------------------
@@ -21,7 +21,7 @@ public:
 class EMove_WalkRight : public EnemyMove
 {
 public:
-	void Move(ML::Vec2& pos);
+	void Move(ML::Vec2& moveVec);
 };
 
 //-----------------------------------------------
@@ -29,7 +29,7 @@ public:
 class EMove_Up : public EnemyMove
 {
 public:
-	void Move(ML::Vec2& pos);
+	void Move(ML::Vec2& moveVec);
 };
 
 //-----------------------------------------------
@@ -37,5 +37,5 @@ public:
 class EMove_Down : public EnemyMove
 {
 public:
-	void Move(ML::Vec2& pos);
+	void Move(ML::Vec2& moveVec);
 };

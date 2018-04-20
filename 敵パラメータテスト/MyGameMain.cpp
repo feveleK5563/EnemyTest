@@ -1,10 +1,11 @@
 #include "MyGameMain.h"
-#include "EnemyData.h"
-#include "AnimationManager.h"
+#include "ImageManager.h"
+#include "EnemyTypeManager.h"
+#include "Enemy.h"
 
 //ゲーム情報
-EnemyData			ed;
-AnimationManager	am("Slime");
+EnemyTypeManager etm;
+Enemy enemy[2];
 
 //-----------------------------------------------------------------------------
 //初期化処理
@@ -12,19 +13,10 @@ AnimationManager	am("Slime");
 //-----------------------------------------------------------------------------
 void  MyGameMain_Initalize()
 {
-	DG::Image_Create("Slime", "./data/image/Slime.png");
-
 	//敵の情報をここで設定(実際はこんなことしない)
-	ed.pos = { 0, 50 };
-
-	{// 右30フレーム→上30フレーム→下60フレーム
-		int moveNum[3] = { 1, 2, 3 };
-		int durationTime[3] = { 30, 30, 60 };
-		int totalMoveNum = 3;
-		ed.emm.CreateMotionPattern(moveNum, durationTime, totalMoveNum, 0, 120);
-	}
-
-	am.CreateCharaChip(0, 32, 32, 32, 2, 0.2f);
+	etm.CreateEnemyData("");
+	enemy[0].SetEnemyType(etm.GetEnemyTypeData(0), ML::Vec2(0, 0));
+	enemy[1].SetEnemyType(etm.GetEnemyTypeData(0), ML::Vec2(0, 32));
 }
 //-----------------------------------------------------------------------------
 //解放処理
@@ -32,7 +24,7 @@ void  MyGameMain_Initalize()
 //-----------------------------------------------------------------------------
 void  MyGameMain_Finalize()
 {
-	DG::Image_Erase("Slime");
+
 }
 //-----------------------------------------------------------------------------
 //更新処理
@@ -41,9 +33,8 @@ void  MyGameMain_Finalize()
 void  MyGameMain_UpDate()
 {
 	//敵の動作を更新
-	ed.emm.Move(ed.pos);
-
-	am.Animation();
+	enemy[0].Update();
+	enemy[1].Update();
 }
 //-----------------------------------------------------------------------------
 //描画処理
@@ -51,11 +42,6 @@ void  MyGameMain_UpDate()
 //-----------------------------------------------------------------------------
 void  MyGameMain_Render2D()
 {
-	//{	//画像表示
-	//	ML::Box2D draw(-16, -16, 32, 32);
-	//	ML::Box2D src(0, 32, 32, 32);
-	//	draw.Offset(ed.pos);
-	//	DG::Image_Draw("Enemy", draw, src);
-	//}
-	am.ImageRender(ed.pos);
+	enemy[0].Render();
+	enemy[1].Render();
 }

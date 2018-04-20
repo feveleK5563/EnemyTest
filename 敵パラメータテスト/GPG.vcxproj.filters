@@ -53,6 +53,9 @@
     <Filter Include="Game\Main\ImageManager">
       <UniqueIdentifier>{44a6e97a-b14a-4d04-83e4-fb32deaf14de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Main\Enemy\EnemyTypeData">
+      <UniqueIdentifier>{0c09a58b-12a5-4a03-93fb-5edd1bfa5e80}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="myLib.cpp">
@@ -115,26 +118,35 @@
     <ClCompile Include="DI2014_Ver3_4.cpp">
       <Filter>LIB\DI2014</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyData.cpp">
-      <Filter>Game\Main\Enemy</Filter>
+    <ClCompile Include="ImageManager.cpp">
+      <Filter>Game\Main\ImageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationCharaChip.cpp">
+      <Filter>Game\Main\ImageManager</Filter>
     </ClCompile>
     <ClCompile Include="EnemyMove.cpp">
-      <Filter>Game\Main\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyMoveManager.cpp">
-      <Filter>Game\Main\Enemy</Filter>
+      <Filter>Game\Main\Enemy\EnemyTypeData</Filter>
     </ClCompile>
     <ClCompile Include="EnemyMovePattern.cpp">
-      <Filter>Game\Main\Enemy</Filter>
+      <Filter>Game\Main\Enemy\EnemyTypeData</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyMoveSet.cpp">
+      <Filter>Game\Main\Enemy\EnemyTypeData</Filter>
     </ClCompile>
     <ClCompile Include="EnemyMoveTransition.cpp">
+      <Filter>Game\Main\Enemy\EnemyTypeData</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyType.cpp">
+      <Filter>Game\Main\Enemy\EnemyTypeData</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyTypeManager.cpp">
+      <Filter>Game\Main\Enemy\EnemyTypeData</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyController.cpp">
       <Filter>Game\Main\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="AnimationManager.cpp">
-      <Filter>Game\Main\ImageManager</Filter>
-    </ClCompile>
-    <ClCompile Include="CharaChip.cpp">
-      <Filter>Game\Main\ImageManager</Filter>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Game\Main\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -195,29 +207,40 @@
     <ClInclude Include="DI2014_Ver3_4.h">
       <Filter>LIB\DI2014</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyData.h">
-      <Filter>Game\Main\Enemy</Filter>
+    <ClInclude Include="ImageManager.h">
+      <Filter>Game\Main\ImageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationCharaChip.h">
+      <Filter>Game\Main\ImageManager</Filter>
     </ClInclude>
     <ClInclude Include="EnemyMove.h">
-      <Filter>Game\Main\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyMoveManager.h">
-      <Filter>Game\Main\Enemy</Filter>
+      <Filter>Game\Main\Enemy\EnemyTypeData</Filter>
     </ClInclude>
     <ClInclude Include="EnemyMovePattern.h">
-      <Filter>Game\Main\Enemy</Filter>
+      <Filter>Game\Main\Enemy\EnemyTypeData</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyMoveSet.h">
+      <Filter>Game\Main\Enemy\EnemyTypeData</Filter>
     </ClInclude>
     <ClInclude Include="EnemyMoveTransition.h">
+      <Filter>Game\Main\Enemy\EnemyTypeData</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyType.h">
+      <Filter>Game\Main\Enemy\EnemyTypeData</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyTypeManager.h">
+      <Filter>Game\Main\Enemy\EnemyTypeData</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyController.h">
       <Filter>Game\Main\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="AnimationManager.h">
-      <Filter>Game\Main\ImageManager</Filter>
-    </ClInclude>
-    <ClInclude Include="CharaChip.h">
-      <Filter>Game\Main\ImageManager</Filter>
+    <ClInclude Include="Enemy.h">
+      <Filter>Game\Main\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="data\Shader\MyStdShader.fx" />
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
 </Project>

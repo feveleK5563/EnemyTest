@@ -1,79 +1,90 @@
 #include "EnemyMovePattern.h"
 
-
 //コンストラクタ
 EnemyMovePattern::EnemyMovePattern(
 	int* moveNum,			//動作番号を入れた配列のアドレス値
+	int* skillId,			//動作中に取得可能なスキル番号
 	int* durationTime,		//動作の継続時間を入れた配列のアドレス値
-	int  totalMoveNum) :	//動作の総数
-	nowMoveOrder(0)
+	int  totalMoveNum,		//動作の総数
+	int  transitionNum)		//動作パターン遷移条件の番号
 {
 	for (int i = 0; i < totalMoveNum; ++i)
 	{
-		mt.emplace_back(new MoveType(*(moveNum + i), *(durationTime + i)));
+		SetMoveAndTime(*(moveNum + i), *(skillId + i), *(durationTime + i));
 	}
-
-	MoveChange(mt[0]->moveTypeNum);
+	SetTransition(transitionNum);
 }
 
 //デストラクタ
 EnemyMovePattern::~EnemyMovePattern()
 { 
-	for (auto it : mt)
+	for (auto it : mp)
+	{
+		delete it->em;
 		delete it;
+	}
 
-	delete em;
+	delete emt;
 }
 
 //-----------------------------------------------------------------------------
 //動作を行う
-void EnemyMovePattern::Move(int& timeCnt, ML::Vec2& pos)
+void EnemyMovePattern::Move(int& nowMoveOrder, int& timeCnt, ML::Vec2& moveVec)
 {
-	em->Move(pos);
+	mp[nowMoveOrder]->em->Move(moveVec);
 
 	++timeCnt;
 	//timeCntがmoveTimeMaxを超えたら、次の動作に移行する
-	if (timeCnt >= mt[nowMoveOrder]->moveTimeMax)
+	if (timeCnt >= mp[nowMoveOrder]->moveTimeMax)
 	{
 		timeCnt = 0;
-		delete em;
 
 		++nowMoveOrder;
-		if (nowMoveOrder >= (int)mt.size())
+		if (nowMoveOrder >= (int)mp.size())
 			nowMoveOrder = 0;
-
-		MoveChange(mt[nowMoveOrder]->moveTypeNum);
 	}
 }
 
 //-----------------------------------------------------------------------------
 //動作順をリセットする
-void EnemyMovePattern::MoveReset()
+void EnemyMovePattern::MoveReset(int& nowMoveOrder)
 {
 	nowMoveOrder = 0;
-	MoveChange(mt[nowMoveOrder]->moveTypeNum);
 }
 
 //-----------------------------------------------------------------------------
-//次の動作に移行させる
-void EnemyMovePattern::MoveChange(int mTypeNum)
+//動作を設定する
+void EnemyMovePattern::SetMoveAndTime(int moveNum, int skillId, int durationTime)
 {
-	switch (mTypeNum)
+	mp.emplace_back(new MovePattern(skillId, durationTime));
+	switch (moveNum)
 	{
 	case 0:		//何もしない
-		em = new EMove_NoMotion();
+		mp.back()->em = new EMove_NoMotion();
 		break;
 
 	case 1:		//右方向に歩く
-		em = new EMove_WalkRight();
+		mp.back()->em = new EMove_WalkRight();
 		break;
 
 	case 2:		//上に移動する
-		em = new EMove_Up();
+		mp.back()->em = new EMove_Up();
 		break;
 
 	case 3:		//下に移動する
-		em = new EMove_Down();
+		mp.back()->em = new EMove_Down();
+		break;
+	}
+}
+
+//-----------------------------------------------------------------------------
+//動作パターン遷移条件を設定する
+void EnemyMovePattern::SetTransition(int transitionNum)
+{
+	switch (transitionNum)
+	{
+	case 0:	//遷移なし
+		emt = new ETransition_Default();
 		break;
 	}
 }

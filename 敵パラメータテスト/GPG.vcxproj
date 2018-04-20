@@ -80,7 +80,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AnimationManager.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyController.cpp" />
+    <ClCompile Include="EnemyTypeManager.cpp" />
+    <ClCompile Include="ImageManager.cpp" />
     <ClCompile Include="DG2014\DG2014_DGObject.cpp" />
     <ClCompile Include="DG2014\DG2014_Effect.cpp" />
     <ClCompile Include="DG2014\DG2014_Font.cpp" />
@@ -94,13 +97,13 @@
     <ClCompile Include="DG2014\DG2014_VertexBuffer.cpp" />
     <ClCompile Include="DG2014\DG2014_VertexContainer.cpp" />
     <ClCompile Include="DI2014_Ver3_4.cpp" />
-    <ClCompile Include="EnemyData.cpp" />
     <ClCompile Include="EnemyMove.cpp" />
-    <ClCompile Include="EnemyMoveManager.cpp" />
+    <ClCompile Include="EnemyMoveSet.cpp" />
     <ClCompile Include="EnemyMovePattern.cpp" />
     <ClCompile Include="EnemyMoveTransition.cpp" />
+    <ClCompile Include="EnemyType.cpp" />
     <ClCompile Include="GameEngine_Ver3_6.cpp" />
-    <ClCompile Include="CharaChip.cpp" />
+    <ClCompile Include="AnimationCharaChip.cpp" />
     <ClCompile Include="MyGameMain.cpp" />
     <ClCompile Include="myLib.cpp" />
     <ClCompile Include="MyPG.cpp" />
@@ -109,7 +112,10 @@
     <ClCompile Include="xnacollision.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AnimationManager.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyController.h" />
+    <ClInclude Include="EnemyTypeManager.h" />
+    <ClInclude Include="ImageManager.h" />
     <ClInclude Include="DG2014\DG2014_DGObject.h" />
     <ClInclude Include="DG2014\DG2014_Effect.h" />
     <ClInclude Include="DG2014\DG2014_Font.h" />
@@ -123,13 +129,13 @@
     <ClInclude Include="DG2014\DG2014_VertexContainer.h" />
     <ClInclude Include="DI2014_Ver3_4.h" />
     <ClInclude Include="EFile.h" />
-    <ClInclude Include="EnemyData.h" />
     <ClInclude Include="EnemyMove.h" />
-    <ClInclude Include="EnemyMoveManager.h" />
+    <ClInclude Include="EnemyMoveSet.h" />
     <ClInclude Include="EnemyMovePattern.h" />
     <ClInclude Include="EnemyMoveTransition.h" />
+    <ClInclude Include="EnemyType.h" />
     <ClInclude Include="GameEngine_Ver3_6.h" />
-    <ClInclude Include="CharaChip.h" />
+    <ClInclude Include="AnimationCharaChip.h" />
     <ClInclude Include="MyGameMain.h" />
     <ClInclude Include="myLib.h" />
     <ClInclude Include="MyPG.h" />
@@ -137,6 +143,8 @@
     <ClInclude Include="xnacollision.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="data\Shader\MyStdShader.fx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
