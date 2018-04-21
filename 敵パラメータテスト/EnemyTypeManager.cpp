@@ -27,7 +27,7 @@ void EnemyTypeManager::CreateEnemyData(string filePath)
 	int transitionNum = 0;
 	ML::Box2D src(0, 32, 32, 32);
 	int sheet = 2;
-	float animSpd = 0.2f;
+	float animSpd = 30.f;
 	bool ir = true;
 	eType.back()->emSet->CreateMotionPattern(moveNum, skillId, durationTime, totalMoveNum, transitionNum,
 											 src, sheet, animSpd, ir);

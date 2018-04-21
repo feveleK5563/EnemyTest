@@ -13,7 +13,6 @@ Enemy enemy[2];
 //-----------------------------------------------------------------------------
 void  MyGameMain_Initalize()
 {
-	//“G‚Ìî•ñ‚ğ‚±‚±‚Åİ’è(ÀÛ‚Í‚±‚ñ‚È‚±‚Æ‚µ‚È‚¢)
 	etm.CreateEnemyData("");
 	enemy[0].SetEnemyType(etm.GetEnemyTypeData(0), ML::Vec2(0, 0));
 	enemy[1].SetEnemyType(etm.GetEnemyTypeData(0), ML::Vec2(0, 32));

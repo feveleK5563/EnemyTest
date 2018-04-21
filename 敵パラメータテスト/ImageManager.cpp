@@ -51,7 +51,7 @@ void ImageManager::ChangeAnimationPattern(int motionNum)
 //アニメーション
 void ImageManager::Animation()
 {
-	animCnt += charaChip[nowAnimNum]->animSpd;
+	animCnt += 1.f / charaChip[nowAnimNum]->animSpd;
 
 	//ループしない場合は最後の動作で停止
 	if (charaChip[nowAnimNum]->isAnimRoop == false &&
