@@ -68,8 +68,7 @@ void ImageManager::ImageRender(const ML::Vec2& pos)
 	ML::Box2D src = charaChip[nowAnimNum]->chip;
 	src.x += src.w * (int(animCnt) % charaChip[nowAnimNum]->chipSheetNum);
 	ML::Box2D draw = src;
-	draw.x = 0;
-	draw.y = 0;
-	draw.Offset(pos);
+	draw.x = pos.x;
+	draw.y = pos.y;
 	DG::Image_Draw(imageName, draw, src);
 }
